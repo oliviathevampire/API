@@ -41,12 +41,11 @@ import de.ellpeck.rockbottom.api.gui.component.ComponentInputField;
 import de.ellpeck.rockbottom.api.gui.component.ComponentMenu;
 import de.ellpeck.rockbottom.api.gui.component.ComponentSlot;
 import de.ellpeck.rockbottom.api.gui.component.ComponentStatistic;
-import de.ellpeck.rockbottom.api.gui.container.ContainerSlot;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
 import de.ellpeck.rockbottom.api.item.Item;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.tile.Tile;
-import de.ellpeck.rockbottom.api.tile.TileLiquid;
+import de.ellpeck.rockbottom.api.tile.LiquidTile;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.tile.state.IStateHandler;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
@@ -83,7 +82,7 @@ public interface IInternalHooks {
     List<PlayerCompendiumRecipe> getRecipesToLearnFrom(Tile tile);
 
     //Liquid behavior kindly provided by superaxander
-    void doDefaultLiquidBehavior(IWorld world, int x, int y, TileLayer layer, TileLiquid tile);
+    void doDefaultLiquidBehavior(IWorld world, int x, int y, TileLayer layer, LiquidTile tile);
 
     String getKeyOrMouseName(int key);
 

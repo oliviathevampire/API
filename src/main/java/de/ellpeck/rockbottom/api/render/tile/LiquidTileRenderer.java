@@ -24,7 +24,7 @@ package de.ellpeck.rockbottom.api.render.tile;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.IRenderer;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
-import de.ellpeck.rockbottom.api.tile.TileLiquid;
+import de.ellpeck.rockbottom.api.tile.LiquidTile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
@@ -33,11 +33,11 @@ import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TileLiquidRenderer<T extends TileLiquid> extends DefaultTileRenderer<T> {
+public class LiquidTileRenderer<T extends LiquidTile> extends DefaultTileRenderer<T> {
 
     private final List<ResourceName> levelTextures = new ArrayList<>();
 
-    public TileLiquidRenderer(ResourceName texture, T tile) {
+    public LiquidTileRenderer(ResourceName texture, T tile) {
         super(texture);
 
         for (int i = 0; i < tile.getLevels(); i++) {

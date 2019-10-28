@@ -22,6 +22,7 @@
 package de.ellpeck.rockbottom.api.entity;
 
 import de.ellpeck.rockbottom.api.RockBottomAPI;
+import de.ellpeck.rockbottom.api.render.Camera;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.ApiInternal;
 import de.ellpeck.rockbottom.api.util.BoundBox;
@@ -31,7 +32,7 @@ import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 
 import java.util.List;
 
-public abstract class MovableWorldObject {
+public abstract class MovableWorldObject implements Camera {
 
     public final BoundBox currentBounds = new BoundBox();
     public IWorld world;
@@ -87,10 +88,12 @@ public abstract class MovableWorldObject {
         this.lastTickY = this.getY();
     }
 
+    @Override
     public double getLerpedX() {
         return Util.lerp(this.lastTickX, this.getX(), RockBottomAPI.getGame().getTickDelta());
     }
 
+    @Override
     public double getLerpedY() {
         return Util.lerp(this.lastTickY, this.getY(), RockBottomAPI.getGame().getTickDelta());
     }

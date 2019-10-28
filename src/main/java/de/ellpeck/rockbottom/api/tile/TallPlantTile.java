@@ -17,8 +17,8 @@ import java.util.List;
 /**
  * Used for two-high plants such as Corn and Cotton
  */
-public class TileTallPlant extends TileBasic {
-    public TileTallPlant(ResourceName name) {
+public class TallPlantTile extends BasicTile {
+    public TallPlantTile(ResourceName name) {
         super(name);
         this.addProps(StaticTileProps.TOP_HALF, StaticTileProps.PLANT_GROWTH);
     }

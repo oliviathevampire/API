@@ -78,6 +78,7 @@ public class Tile {
     protected boolean forceDrop;
     protected float hardness = 1F;
     protected boolean isChiselable;
+    protected float solidLightPropagation = 0.3f;
 
     public Tile(ResourceName name) {
         this.name = name;
@@ -413,6 +414,8 @@ public class Tile {
         if (!this.isFullTile() && skylight) {
             return 1F;
         } else {
+            /*if (!obscuresBackground(world, x, y, layer)) return layer == TileLayer.BACKGROUND ? 0.9F : 0.8F;
+            else return layer == TileLayer.BACKGROUND ? 0.9F : solidLightPropagation;*/
             return layer == TileLayer.BACKGROUND ? 0.9F : 0.8F;
         }
     }
@@ -510,7 +513,7 @@ public class Tile {
         return this.isFullTile();
     }
 
-    public boolean canLiquidSpread(IWorld world, int x, int y, TileLiquid liquid, Direction dir) {
+    public boolean canLiquidSpread(IWorld world, int x, int y, LiquidTile liquid, Direction dir) {
         if (!this.isChiseled(world, x, y, TileLayer.MAIN, world.getState(x, y)))
             return !this.isFullTile();
 
@@ -541,6 +544,11 @@ public class Tile {
         if (item != null) {
             item.setMaxAmount(amount);
         }
+        return this;
+    }
+
+    public Tile setSolidLightPropagation(float propagation) {
+        this.solidLightPropagation = propagation;
         return this;
     }
 

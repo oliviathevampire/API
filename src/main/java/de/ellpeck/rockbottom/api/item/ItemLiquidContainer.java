@@ -27,7 +27,7 @@ import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.data.set.ModBasedDataSet;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.tile.Tile;
-import de.ellpeck.rockbottom.api.tile.TileLiquid;
+import de.ellpeck.rockbottom.api.tile.LiquidTile;
 import de.ellpeck.rockbottom.api.tile.state.IntProp;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
@@ -84,8 +84,8 @@ public abstract class ItemLiquidContainer extends ItemBasic {
         Tile tile = state.getTile();
 
         if (stored <= 0) { // grab liquid from world
-            if (tile instanceof TileLiquid) {
-                IntProp amountProp = ((TileLiquid) tile).level;
+            if (tile instanceof LiquidTile) {
+                IntProp amountProp = ((LiquidTile) tile).level;
                 int tileAmount = state.get(amountProp) + 1;
                 if (this.getCapacity(instance) > 0) { // container capacity > 0
                     int toStore = Math.min(tileAmount, this.getCapacity(instance));
@@ -109,8 +109,8 @@ public abstract class ItemLiquidContainer extends ItemBasic {
                 if (!world.isClient()) {
                     ResourceName liquid = getLiquid(instance);
                     Tile toPlace = Registries.TILE_REGISTRY.get(liquid);
-                    if (toPlace instanceof TileLiquid) {
-                        IntProp amountProp = ((TileLiquid) toPlace).level;
+                    if (toPlace instanceof LiquidTile) {
+                        IntProp amountProp = ((LiquidTile) toPlace).level;
                         int toPutDown = Math.min(stored, amountProp.getVariants());
 
                         TileState placeState = toPlace.getDefState().prop(amountProp, toPutDown - 1);

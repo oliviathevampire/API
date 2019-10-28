@@ -30,6 +30,7 @@ import de.ellpeck.rockbottom.api.assets.texture.ITexture;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.item.ToolProperty;
+import de.ellpeck.rockbottom.api.tile.NewTile;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
@@ -97,7 +98,11 @@ public class DefaultTileRenderer<T extends Tile> implements ITileRenderer<T> {
 
                 int[] newLights = getChiseledLight(light, i);
 
-                texture.draw(renderX + minX * scale, renderY + (1 - minY) * scale, renderX + maxX * scale, renderY + (1 - maxY) * scale, minX * 12, (1 - minY) * 12, maxX * 12, (1 - maxY) * 12, newLights);
+                if (!(tile instanceof NewTile)) {
+                    texture.draw(renderX + minX * scale, renderY + (1 - minY) * scale, renderX + maxX * scale, renderY + (1 - maxY) * scale, minX * 12, (1 - minY) * 12, maxX * 12, (1 - maxY) * 12, newLights);
+                } else {
+                    texture.draw(renderX + minX * scale, renderY + (1 - minY) * scale, renderX + maxX * scale, renderY + (1 - maxY) * scale, minX * 16, (1 - minY) * 16, maxX * 16, (1 - maxY) * 16, newLights);
+                }
                 this.renderChiselHighlight(game, g, box, x, y, renderX, renderY, scale);
             }
         }

@@ -26,7 +26,7 @@ import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.item.ItemTile;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
-import de.ellpeck.rockbottom.api.render.tile.TileMetaRenderer;
+import de.ellpeck.rockbottom.api.render.tile.MetaTileRenderer;
 import de.ellpeck.rockbottom.api.tile.state.IntProp;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
@@ -37,17 +37,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TileMeta extends TileBasic {
+public class MetaTile extends BasicTile {
 
     public final List<ResourceName> subResourceNames = new ArrayList<>();
     public final List<ResourceName> subUnlocNames = new ArrayList<>();
     public IntProp metaProp;
 
-    public TileMeta(ResourceName name) {
+    public MetaTile(ResourceName name) {
         this(name, true);
     }
 
-    public TileMeta(ResourceName name, boolean addDirectly) {
+    public MetaTile(ResourceName name, boolean addDirectly) {
         super(name);
 
         if (addDirectly) {
@@ -57,7 +57,7 @@ public class TileMeta extends TileBasic {
 
     @Override
     protected ITileRenderer createRenderer(ResourceName name) {
-        return new TileMetaRenderer(name);
+        return new MetaTileRenderer(name);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class TileMeta extends TileBasic {
         return super.register();
     }
 
-    public TileMeta addSubTile(ResourceName name) {
+    public MetaTile addSubTile(ResourceName name) {
         this.subResourceNames.add(name.addPrefix("tiles."));
         this.subUnlocNames.add(name.addPrefix("item."));
         return this;
@@ -81,8 +81,8 @@ public class TileMeta extends TileBasic {
             public ResourceName getUnlocalizedName(ItemInstance instance) {
                 int meta = instance.getMeta();
 
-                if (meta >= 0 && TileMeta.this.subUnlocNames.size() > meta) {
-                    return TileMeta.this.subUnlocNames.get(meta);
+                if (meta >= 0 && MetaTile.this.subUnlocNames.size() > meta) {
+                    return MetaTile.this.subUnlocNames.get(meta);
                 } else {
                     return super.getUnlocalizedName(instance);
                 }
@@ -90,7 +90,7 @@ public class TileMeta extends TileBasic {
 
             @Override
             public int getHighestPossibleMeta() {
-                return Math.max(TileMeta.this.subUnlocNames.size(), TileMeta.this.subResourceNames.size()) - 1;
+                return Math.max(MetaTile.this.subUnlocNames.size(), MetaTile.this.subResourceNames.size()) - 1;
             }
         };
     }

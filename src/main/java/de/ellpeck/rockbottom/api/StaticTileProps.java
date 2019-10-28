@@ -21,7 +21,7 @@
 
 package de.ellpeck.rockbottom.api;
 
-import de.ellpeck.rockbottom.api.tile.TileTallPlant;
+import de.ellpeck.rockbottom.api.tile.TallPlantTile;
 import de.ellpeck.rockbottom.api.tile.state.BoolProp;
 import de.ellpeck.rockbottom.api.tile.state.EnumProp;
 import de.ellpeck.rockbottom.api.tile.state.IntProp;
@@ -61,7 +61,7 @@ public final class StaticTileProps {
      */
     public static final IntProp SAPLING_GROWTH = new IntProp("growth", 0, 5);
     /**
-     * Determines how far grown a plant is. Used by {@link TileTallPlant}
+     * Determines how far grown a plant is. Used by {@link TallPlantTile}
      */
     public static final IntProp PLANT_GROWTH = new IntProp("growth", 0, 10);
     /**

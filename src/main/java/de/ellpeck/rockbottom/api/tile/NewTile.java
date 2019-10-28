@@ -1,5 +1,5 @@
 /*
- * This file ("TileBasic.java") is part of the RockBottomAPI by Ellpeck.
+ * This file ("Tile.java") is part of the RockBottomAPI by Ellpeck.
  * View the source code at <https://github.com/RockBottomGame/>.
  * View information on the project at <https://rockbottom.ellpeck.de/>.
  *
@@ -21,25 +21,12 @@
 
 package de.ellpeck.rockbottom.api.tile;
 
-import de.ellpeck.rockbottom.api.render.tile.DefaultTileRenderer;
-import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 
-public class TileBasic extends Tile {
+public class NewTile extends Tile {
 
-    protected final ITileRenderer renderer;
-
-    public TileBasic(ResourceName name) {
+    public NewTile(ResourceName name) {
         super(name);
-        this.renderer = this.createRenderer(name);
     }
 
-    protected ITileRenderer createRenderer(ResourceName name) {
-        return new DefaultTileRenderer(name);
-    }
-
-    @Override
-    public ITileRenderer getRenderer() {
-        return this.renderer;
-    }
 }

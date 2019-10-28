@@ -28,15 +28,15 @@ import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.assets.texture.ITexture;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
-import de.ellpeck.rockbottom.api.tile.TileMeta;
+import de.ellpeck.rockbottom.api.tile.MetaTile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 
-public class TileMetaRenderer<T extends TileMeta> extends DefaultTileRenderer<T> {
+public class MetaTileRenderer<T extends MetaTile> extends DefaultTileRenderer<T> {
 
-    public TileMetaRenderer(ResourceName texture) {
+    public MetaTileRenderer(ResourceName texture) {
         super(texture);
     }
 

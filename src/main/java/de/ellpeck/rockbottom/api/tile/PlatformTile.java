@@ -6,7 +6,7 @@ import de.ellpeck.rockbottom.api.entity.Entity;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
-import de.ellpeck.rockbottom.api.render.tile.TilePlatformRenderer;
+import de.ellpeck.rockbottom.api.render.tile.PlatformTileRenderer;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
 import de.ellpeck.rockbottom.api.util.Direction;
@@ -16,9 +16,9 @@ import de.ellpeck.rockbottom.api.world.layer.TileLayer;
 
 import java.util.List;
 
-public class TilePlatform extends TileBasic {
+public class PlatformTile extends BasicTile {
 
-    public TilePlatform() {
+    public PlatformTile() {
         super(ResourceName.intern("platform"));
         this.addProps(StaticTileProps.HAS_LADDER);
     }
@@ -78,11 +78,11 @@ public class TilePlatform extends TileBasic {
             return true;
 
         TileState left = world.getState(x - 1, y);
-        if (left.getTile().isFullTile() || left.getTile() instanceof TilePlatform)
+        if (left.getTile().isFullTile() || left.getTile() instanceof PlatformTile)
             return true;
 
         TileState right = world.getState(x + 1, y);
-        if (right.getTile().isFullTile() || right.getTile() instanceof TilePlatform)
+        if (right.getTile().isFullTile() || right.getTile() instanceof PlatformTile)
             return true;
 
         return false;
@@ -128,7 +128,7 @@ public class TilePlatform extends TileBasic {
             TileState checkBackState = world.getState(TileLayer.BACKGROUND, checkX, y);
             if (checkState.getTile().isFullTile() || checkBackState.getTile().isFullTile())
                 return true;
-            else if (!(checkState.getTile() instanceof TilePlatform))
+            else if (!(checkState.getTile() instanceof PlatformTile))
                 return false;
             checkX += dir.x;
         }
@@ -136,12 +136,12 @@ public class TilePlatform extends TileBasic {
     }
 
     @Override
-    public boolean canLiquidSpread(IWorld world, int x, int y, TileLiquid liquid, Direction dir) {
+    public boolean canLiquidSpread(IWorld world, int x, int y, LiquidTile liquid, Direction dir) {
         return true;
     }
 
     @Override
     protected ITileRenderer createRenderer(ResourceName name) {
-        return new TilePlatformRenderer(name.addPrefix("wood_"));
+        return new PlatformTileRenderer(name.addPrefix("wood_"));
     }
 }

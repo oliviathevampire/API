@@ -28,6 +28,7 @@ import de.ellpeck.rockbottom.api.data.settings.Settings;
 import de.ellpeck.rockbottom.api.event.impl.TooltipEvent;
 import de.ellpeck.rockbottom.api.gui.container.ItemContainer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
+import de.ellpeck.rockbottom.api.render.Camera;
 import de.ellpeck.rockbottom.api.render.engine.*;
 import de.ellpeck.rockbottom.api.util.ApiInternal;
 import de.ellpeck.rockbottom.api.util.Util;
@@ -299,6 +300,11 @@ public interface IRenderer extends IDisposable {
     IShaderProgram getProgram();
 
     /**
+     * @return The renderer's current camera
+     */
+    Camera getCamera();
+
+    /**
      * Sets the {@link IShaderProgram} that the renderer should use to draw.
      * Calling this method while the renderer is active will cause the current
      * vertices to be flushed and rendered with the last set shader program.
@@ -543,6 +549,13 @@ public interface IRenderer extends IDisposable {
      */
     @ApiInternal
     void calcScales();
+
+    /**
+     * Recalculates the world scale. This is an internal method that should
+     * not be called by modders.
+     */
+    @ApiInternal
+    void recalculateWorldScale();
 
     /**
      * Gets the display's ratio as a float. For example, if the window's current
