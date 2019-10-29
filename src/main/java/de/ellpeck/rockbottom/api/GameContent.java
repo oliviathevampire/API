@@ -68,6 +68,12 @@ public final class GameContent {
     public static final Tile TILE_NETHERRACK = getTile("sand").setHardness(0.75F).addEffectiveTool(ToolProperty.SHOVEL, 0).setForceDrop().setMaxAmount(100).setSolidLightPropagation(0.7f);
     public static final Tile TILE_NETHER_BRICKS = getTile("sandstone").setHardness(4F).addEffectiveTool(ToolProperty.PICKAXE, 0).setMaxAmount(75).setSolidLightPropagation(0.7f);
 
+    public static final Tile SHADOW_STONE_TILE = getTile("shadow_stone").setHardness(0.75F).addEffectiveTool(ToolProperty.PICKAXE, 0).setForceDrop().setMaxAmount(50);
+    public static final Tile SHADOW_GRASS_TILE = getTile("shadow_grass").setHardness(4F).addEffectiveTool(ToolProperty.SHOVEL, 0).setMaxAmount(50);
+    public static final Tile SHADOW_DIRT_TILE = getTile("shadow_dirt").setHardness(4F).addEffectiveTool(ToolProperty.SHOVEL, 0).setMaxAmount(50);
+    public static final Tile SHADOW_STONE_BRICKS_TILE = getTile("shadow_stone_bricks").setHardness(4F).addEffectiveTool(ToolProperty.PICKAXE, 0).setMaxAmount(50);
+    public static final Tile CHISELED_SHADOW_STONE_TILE = getTile("chiseled_shadow_stone").setHardness(4F).addEffectiveTool(ToolProperty.PICKAXE, 0).setMaxAmount(50);
+
     public static final Tile TILE_COAL = getTile("coal").setHardness(6F).addEffectiveTool(ToolProperty.PICKAXE, 1).setMaxAmount(45);
     public static final Tile TILE_TORCH = getTile("torch").setHardness(0F).setForceDrop().setMaxAmount(50);
     public static final Tile TILE_LADDER = getTile("ladder").setHardness(1.5F).addEffectiveTool(ToolProperty.AXE, 0).setForceDrop().setMaxAmount(100);
@@ -171,7 +177,13 @@ public final class GameContent {
     public static final Biome BIOME_SKY = getBiome("sky");
     public static final Biome BIOME_GRASSLAND = getBiome("grassland");
     public static final Biome BIOME_DESERT = getBiome("desert");
+    public static final Biome BIOME_RED_DESERT = getBiome("desert");
+    public static final Biome BIOME_WHITE_DESERT = getBiome("desert");
     public static final Biome BIOME_UNDERGROUND = getBiome("underground");
+    public static final Biome BIOME_DEEP_UNDERGROUND = getBiome("deep_underground");
+    public static final Biome BIOME_SHADOW_GRASSLANDS = getBiome("shadow_grasslands");
+    public static final Biome BIOME_SHADOW_SWAMP= getBiome("shadow_swamp");
+    public static final Biome BIOME_FOREST= getBiome("shadow_forest");
     public static final Biome BIOME_COLD_GRASSLAND = getBiome("cold_grassland");
 
     /*
@@ -180,6 +192,8 @@ public final class GameContent {
     public static final BiomeLevel BIOME_LEVEL_SKY = getBiomeLevel("sky");
     public static final BiomeLevel BIOME_LEVEL_SURFACE = getBiomeLevel("surface");
     public static final BiomeLevel BIOME_LEVEL_UNDERGROUND = getBiomeLevel("underground");
+    public static final BiomeLevel BIOME_LEVEL_DEEP_UNDERGROUND = getBiomeLevel("deep_underground");
+    public static final BiomeLevel BIOME_LEVEL_THE_SHADOW = getBiomeLevel("the_shadow");
 
     /*
         ---ENTITY EFFECTS---
