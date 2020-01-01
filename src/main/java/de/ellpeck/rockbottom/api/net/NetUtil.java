@@ -26,9 +26,9 @@ import de.ellpeck.rockbottom.api.data.set.AbstractDataSet;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
+import org.apache.logging.log4j.Level;
 
 import java.util.UUID;
-import java.util.logging.Level;
 
 public final class NetUtil {
 
@@ -36,7 +36,7 @@ public final class NetUtil {
         try {
             RockBottomAPI.getApiHandler().writeDataSet(new ByteBufOutputStream(buf), set);
         } catch (Exception e) {
-            RockBottomAPI.logger().log(Level.SEVERE, "Couldn't write data set to buffer", e);
+            RockBottomAPI.logger().log(Level.FATAL, "Couldn't write data set to buffer", e);
         }
     }
 
@@ -44,7 +44,7 @@ public final class NetUtil {
         try {
             RockBottomAPI.getApiHandler().readDataSet(new ByteBufInputStream(buf), set);
         } catch (Exception e) {
-            RockBottomAPI.logger().log(Level.SEVERE, "Couldn't read data set from buffer", e);
+            RockBottomAPI.logger().log(Level.FATAL, "Couldn't read data set from buffer", e);
         }
     }
 

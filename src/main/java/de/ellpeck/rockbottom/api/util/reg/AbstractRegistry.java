@@ -50,13 +50,13 @@ public class AbstractRegistry<T, U> implements IRegistry<T, U> {
         Preconditions.checkArgument(!this.map.containsKey(key), "Cannot register " + value + " with name " + key + " twice into registry " + this);
 
         this.map.put(key, value);
-        RockBottomAPI.logger().config("Registered " + value + " with name " + key + " into registry " + this);
+        RockBottomAPI.logger().info("Registered " + value + " with name " + key + " into registry " + this);
     }
 
     @Override
     public U get(T key) {
         if (key == null) {
-            RockBottomAPI.logger().warning("Tried getting value of " + key + " for registry " + this + " which is invalid");
+            RockBottomAPI.logger().warn("Tried getting value of " + key + " for registry " + this + " which is invalid");
             return null;
         } else {
             return this.map.get(key);
@@ -77,7 +77,7 @@ public class AbstractRegistry<T, U> implements IRegistry<T, U> {
     public void unregister(T key) {
         if (this.canUnregister) {
             this.map.remove(key);
-            RockBottomAPI.logger().config("Unregistered " + key + " from registry " + this);
+            RockBottomAPI.logger().info("Unregistered " + key + " from registry " + this);
         } else {
             throw new UnsupportedOperationException("Unregistering from registry " + this + " is disallowed");
         }

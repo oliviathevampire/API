@@ -61,7 +61,7 @@ public abstract class ItemContainer implements Iterable<ContainerSlot> {
         if (!this.containedInventories.contains(slot.inventory)) {
             this.containedInventories.add(slot.inventory);
 
-            RockBottomAPI.logger().config("Added inventory " + slot.inventory + " as contained inventory of " + this);
+            RockBottomAPI.logger().info("Added inventory " + slot.inventory + " as contained inventory of " + this);
         }
         this.slots.add(slot);
     }

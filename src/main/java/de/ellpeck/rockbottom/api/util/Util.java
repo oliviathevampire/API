@@ -24,7 +24,6 @@ package de.ellpeck.rockbottom.api.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import de.ellpeck.rockbottom.api.Constants;
 import de.ellpeck.rockbottom.api.Registries;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
@@ -34,6 +33,7 @@ import de.ellpeck.rockbottom.api.tile.entity.IFilteredInventory;
 import de.ellpeck.rockbottom.api.util.reg.ResourceName;
 import de.ellpeck.rockbottom.api.world.IChunk;
 import de.ellpeck.rockbottom.api.world.IWorld;
+import org.apache.logging.log4j.Level;
 
 import java.awt.*;
 import java.io.File;
@@ -41,7 +41,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
 
 /**
  * This class provides a large variety of helpful utility methods and variables
@@ -240,7 +239,7 @@ public final class Util {
         try {
             return entityClass.getConstructor(IWorld.class).newInstance(world);
         } catch (Exception e) {
-            RockBottomAPI.logger().log(Level.SEVERE, "Couldn't initialize entity with name " + name, e);
+            RockBottomAPI.logger().log(Level.FATAL, "Couldn't initialize entity with name " + name, e);
             return null;
         }
     }
@@ -274,7 +273,7 @@ public final class Util {
             Desktop.getDesktop().open(file);
             return true;
         } catch (Exception e) {
-            RockBottomAPI.logger().log(Level.WARNING, "Couldn't open file " + file, e);
+            RockBottomAPI.logger().log(Level.WARN, "Couldn't open file " + file, e);
             return false;
         }
     }
@@ -291,7 +290,7 @@ public final class Util {
             Desktop.getDesktop().browse(new URI(domain));
             return true;
         } catch (Exception e) {
-            RockBottomAPI.logger().log(Level.WARNING, "Couldn't open website " + domain, e);
+            RockBottomAPI.logger().log(Level.WARN, "Couldn't open website " + domain, e);
             return false;
         }
     }

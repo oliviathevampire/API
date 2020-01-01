@@ -119,11 +119,11 @@ public interface IContentLoader<T extends IContent> {
                 }
                 JsonObject params = criteria.getAsJsonObject("params");
                 if (!icriteria.deserialize(recipe, params)) {
-                    RockBottomAPI.logger().warning("Failed to deserialize criteria " + cname + " for recipe " + recipe.getName());
+                    RockBottomAPI.logger().warn("Failed to deserialize criteria " + cname + " for recipe " + recipe.getName());
                 }
             }
         } else {
-            RockBottomAPI.logger().warning("Tried to register criteria for the recipe " + recipe.getName() + " which doesn't use knowledge!");
+            RockBottomAPI.logger().warn("Tried to register criteria for the recipe " + recipe.getName() + " which doesn't use knowledge!");
         }
     }
 

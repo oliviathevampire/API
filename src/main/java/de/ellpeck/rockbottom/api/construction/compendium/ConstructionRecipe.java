@@ -125,7 +125,7 @@ public class ConstructionRecipe extends PlayerCompendiumRecipe {
 
     public ConstructionRecipe registerManual() {
         if (tools != null && tools.size() > 0) {
-            RockBottomAPI.logger().warning("Registered manual recipe " + getName() + " with " + getTools().size() + "tools! This should be marked as a construction table recipe.");
+            RockBottomAPI.logger().warn("Registered manual recipe " + getName() + " with " + getTools().size() + "tools! This should be marked as a construction table recipe.");
         }
         Registries.MANUAL_CONSTRUCTION_RECIPES.register(this.getName(), this);
         return this;
@@ -133,7 +133,7 @@ public class ConstructionRecipe extends PlayerCompendiumRecipe {
 
     public ConstructionRecipe registerConstructionTable() {
         if (tools == null || tools.isEmpty()) {
-            RockBottomAPI.logger().warning("Registered construction table recipe " + getName() + " with no tools! This should be marked as a manual recipe.");
+            RockBottomAPI.logger().warn("Registered construction table recipe " + getName() + " with no tools! This should be marked as a manual recipe.");
         }
         Registries.CONSTRUCTION_TABLE_RECIPES.register(this.getName(), this);
         return this;

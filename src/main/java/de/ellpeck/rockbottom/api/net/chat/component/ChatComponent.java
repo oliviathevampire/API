@@ -27,8 +27,7 @@ import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.util.ApiInternal;
-
-import java.util.logging.Level;
+import org.apache.logging.log4j.Level;
 
 public abstract class ChatComponent {
 
@@ -50,7 +49,7 @@ public abstract class ChatComponent {
 
             return component;
         } catch (Exception e) {
-            RockBottomAPI.logger().log(Level.SEVERE, "Couldn't read chat component with id " + id + " from data set " + set + "! Does it have a default constructor?", e);
+            RockBottomAPI.logger().log(Level.FATAL, "Couldn't read chat component with id " + id + " from data set " + set + "! Does it have a default constructor?", e);
             return null;
         }
     }

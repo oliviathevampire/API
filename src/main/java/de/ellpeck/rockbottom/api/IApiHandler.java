@@ -48,6 +48,7 @@ import de.ellpeck.rockbottom.api.world.gen.INoiseGen;
 import de.ellpeck.rockbottom.api.world.gen.biome.Biome;
 import de.ellpeck.rockbottom.api.world.gen.biome.level.BiomeLevel;
 import de.ellpeck.rockbottom.api.world.layer.TileLayer;
+import org.apache.logging.log4j.Logger;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -55,10 +56,8 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.logging.Logger;
 
 /**
  * This class exposes a multitude of utility methods that are too big to be

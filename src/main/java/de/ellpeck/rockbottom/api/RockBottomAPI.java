@@ -31,8 +31,7 @@ import de.ellpeck.rockbottom.api.mod.IMod;
 import de.ellpeck.rockbottom.api.mod.IModLoader;
 import de.ellpeck.rockbottom.api.net.INetHandler;
 import de.ellpeck.rockbottom.api.util.ApiInternal;
-
-import java.util.logging.Logger;
+import org.apache.logging.log4j.Logger;
 
 /**
  * The main API class. Use this to access data related to the game's internal
