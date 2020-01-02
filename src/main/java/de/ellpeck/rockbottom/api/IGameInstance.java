@@ -353,4 +353,6 @@ public interface IGameInstance extends IMod {
      * more FPS than TPS.
      */
     float getTickDelta();
+
+    String getGameBrand();
 }
