@@ -70,18 +70,18 @@ public abstract class AbstractInventory implements IInventory {
     public void addChangeCallback(BiConsumer<IInventory, Integer> callback) {
         if (!this.callbacks.contains(callback)) {
             this.callbacks.add(callback);
-            RockBottomAPI.logger().info("Added change callback " + callback + " to inventory " + this);
+//            RockBottomAPI.logger().info("Added change callback " + callback + " to inventory " + this);
         } else {
-            RockBottomAPI.logger().warn("Tried adding change callback " + callback + " to inventory " + this + " but it was already present!");
+//            RockBottomAPI.logger().warn("Tried adding change callback " + callback + " to inventory " + this + " but it was already present!");
         }
     }
 
     @Override
     public void removeChangeCallback(BiConsumer<IInventory, Integer> callback) {
         if (this.callbacks.remove(callback)) {
-            RockBottomAPI.logger().info("Removed change callback " + callback + " from inventory " + this);
+//            RockBottomAPI.logger().info("Removed change callback " + callback + " from inventory " + this);
         } else {
-            RockBottomAPI.logger().warn("Tried removing change callback " + callback + " to inventory " + this + " but it wasn't part of it!");
+//            RockBottomAPI.logger().warn("Tried removing change callback " + callback + " to inventory " + this + " but it wasn't part of it!");
         }
     }
 
